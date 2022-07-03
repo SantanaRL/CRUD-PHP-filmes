@@ -76,7 +76,7 @@
 </head>
 <body>
     <div class="container p-5">
-        <h1 class="text-center">Titulo</h1>
+        <h1 class="text-center">Buscador de filmes</h1>
         
         <form action="index.php" method="POST" class="border p-2 m-5">
             <div class="item_filme">
