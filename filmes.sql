@@ -6,7 +6,9 @@ create table filme(
     ano int,
     genero varchar(40),
     diretor varchar(40),
-    estrela varchar(40)
+    faixa_etaria int,
+    estrela varchar(40),
+	roterista varchar(40)
 );
-insert into filme values(default,'click',2006,'comédia','Frank Coraci','Adam Sandler');
+insert into filme values(default,'click',2006,'comédia','Frank Coraci',12,'Adam Sandler',NULL);
 select * from filme;

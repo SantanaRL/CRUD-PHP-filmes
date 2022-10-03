@@ -29,15 +29,18 @@
         $nome = "";
         $ano = 0;
         $genero = "";
+        $faixaetaria = 0;
         $atorPrincipal = "";
         $diretor = "";
+        $roterista = "";
         function esvasia(){
             $nome = "";
             $ano = 0;
             $genero = "";
+            $faixaetaria = 0;
             $atorPrincipal = "";
             $diretor = "";
-
+            $roterista = "";
         }
         include('conection.php');
 
@@ -51,8 +54,10 @@
                     $nome = $resultado["nome"];
                     $ano = $resultado["ano"];
                     $genero = $resultado["genero"];
+                    $faixaetaria = $resultado["faixa_etaria"];
                     $atorPrincipal = $resultado["estrela"];
                     $diretor = $resultado["diretor"];
+                    $roterista = $resultado["roterista"];
                 }else {
                     # code...
                 }
@@ -62,8 +67,10 @@
                 $nome = $_POST["nome_filme"];
                 $ano = $_POST["ano_filme"] ;
                 $genero = $_POST["genero_filme"];
+                $faixaetaria = $_POST["faixaetaria_filme"] ;
                 $atorPrincipal = $_POST["atorPrincipal_filme"] ;
                 $diretor = $_POST["diretor_filme"] ;
+                $roterista = $_POST["roterista_filme"];
                 $sql="insert into filme values(default,'$nome',$ano,'$genero','$diretor',$faixaetaria,'$atorPrincipal','$roterista')";
                 $query = mysqli_query($conn,$sql);
                     
@@ -76,7 +83,7 @@
 </head>
 <body>
     <div class="container p-5">
-        <h1 class="text-center">Buscador de filmes</h1>
+        <h1 class="text-center">Titulo</h1>
         
         <form action="index.php" method="POST" class="border p-2 m-5">
             <div class="item_filme">
@@ -97,8 +104,16 @@
                 <input required type="text" name="diretor_filme" value="<?php echo $diretor?>">
             </div>
             <div class="item_filme">
+                <label for="faixaetaria_filme">faixa etária</label>
+                <input required type="number" name="faixaetaria_filme" value="<?php echo $faixaetaria?>">
+            </div>
+            <div class="item_filme">
                 <label for="atorPrincipal_filme">Estrela</label>
                 <input required type="text" name="atorPrincipal_filme" value="<?php echo $atorPrincipal?>">
+            </div>
+            <div class="item_filme">
+                <label for="roterista_filme">Roterista</label>
+                <input required type="text" name="roterista_filme" value="<?php echo $roterista?>">
             </div>
             <div class="item_filme">
             <input name="envio" type="submit" value="Adicionar" class="btn btn-outline-dark d-inline m-auto">
@@ -134,7 +149,9 @@
             <th scope="col">ano</e</th>
             <th scope="col">genero</th>
             <th scope="col">diretor</th>
+            <th scope="col">faixa etaria</th>
             <th scope="col">estrela</th>
+            <th scope="col">roterista</th>
         </tr>
         </thead>
         <tbody>
@@ -152,7 +169,9 @@
                 <th><?php echo $linha["ano"]?></th>
                 <th><?php echo $linha["genero"]?></th>
                 <th><?php echo $linha["diretor"]?></th>
+                <th><?php echo $linha["faixa_etaria"]?></th>
                 <th><?php echo $linha["estrela"]?></th>
+                <th><?php echo $linha["roterista"]?></th>
             </tr>
             <?php
             }
